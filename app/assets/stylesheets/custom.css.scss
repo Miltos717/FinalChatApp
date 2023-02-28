@@ -1,0 +1,61 @@
+@import "semantic-ui";
+.chatbox{
+  height: 450px;
+}
+#messages{
+  height: 15em;
+  overflow: auto ;
+}
+
+.input{
+  button{
+    display: none;
+  }
+}
+
+
+.ui.card .header {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: .5em;
+}
+
+.ui.card .meta {
+  font-size: .8em;
+  color: #999;
+  margin-bottom: .5em;
+}
+
+.ui.card .description {
+  font-size: 1em;
+  line-height: 1.5;
+  color: #333;
+}
+
+//.ui.card .extra.content {
+//  background-color: #f9f9f9;
+//  padding: 1em;
+//}
+//
+//.ui.container {
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//  height: 100vh;
+//}
+
+.ui.card {
+  width: 300px;
+  background-color: grey;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+
+.custom-card-container {
+  padding-left: 230px; /* adjust this value as needed */
+}
+
+
+
+
