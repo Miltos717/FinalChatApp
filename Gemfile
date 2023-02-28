@@ -72,3 +72,4 @@ group :test do
 end
 gem "importmap-rails"
 gem "semantic-ui-sass"
+gem 'redis'
