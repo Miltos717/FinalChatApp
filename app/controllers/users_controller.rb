@@ -5,12 +5,15 @@ class UsersController < ApplicationController
   end
 
   def create
+
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_path, notice: "User created"
     else
+      flash.now[:error] = "Please correct the errors below"
       render 'new'
+
     end
 
   end
