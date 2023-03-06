@@ -1,22 +1,31 @@
 <div class="ui centered card">
-      <div class="content">
-        <div class="header">Users</div>
-        <% @user.each do |m|%>
-      </div>
-
-  <div class="center aligned content">
-    <div class="ui small feed">
-      <div class="event">
+  <div class="content">
+    <div class="header">Users</div>
+    <% @user.each do |user| %>
+      <div class="ui centered card">
         <div class="content">
-          <div class="summary">
-            <%= m.username %>
+          <div class="ui black button"><%= link_to user.username,e_path %></div>
+        </div>
+        <div class="center aligned content">
+          <div class="ui small feed">
+            <div class="event">
+              <div class="content">
+                <div class="summary">
+                  <% if current_user != user %>
+                    <% if @following_users.include?(user) %>
+                      <%= button_to 'Unfollow', unfollow_path(user), class: "ui inverted red button" %>
+                    <% else %>
+                      <%= button_to 'Follow', follow_path(user), method: :post, class: "ui inverted green button" %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
     <% end %>
+
+  </div>
     </div>
-
-</div>
-
-</div>
+    </div>

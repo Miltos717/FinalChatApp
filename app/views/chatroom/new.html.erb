@@ -1,0 +1,18 @@
+<div class="ui centered card">
+  <div class="content">
+    <div class="header">Create Chatroom</div>
+  </div>
+  <div class="content">
+    <%= form_with model: @chatroom, url: chatrooms_path, class: 'ui form' do |f| %>
+      <div class="field">
+        <%= f.label :id %>
+        <%= f.text_field :id %>
+      </div>
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <%= f.submit 'Create Chatroom', class: 'ui button primary' %>
+    <% end %>
+  </div>
+</div>

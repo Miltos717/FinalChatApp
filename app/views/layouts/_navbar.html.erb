@@ -1,16 +1,26 @@
 <div class="ui large menu">
-  <a class="active item">
     <%= link_to "Home", root_path, class: "item" %>
-  </a>
-  <a class="active item">
+
     <%= link_to "ChatRoom", messages_path, class: "item" %>
-  </a>
-  <a class="item">
+
     <% if logged_in? %>
       <%= link_to "Users", all_users_path,class:"item" %>
     <% end %>
-  </a>
+
+    <% if logged_in? %>
+      <%= link_to "Profile", e_path,class:"item" %>
+    <% end %>
+
+    <% if logged_in? %>
+      <%= link_to "Create ChatRoom", room_path,class:"item" %>
+    <% end %>
+
   <div class="right menu">
+    <%# if flash[:success] %>
+<!--      <div class="ui green message">-->
+        <%#= flash[:success] %>
+<!--      </div>-->
+    <%# end %>
     <div class="ui dropdown item">
       <% if !logged_in? %>
         Account
@@ -21,7 +31,6 @@
       <div class="menu">
         <% if logged_in? %>
           <%= link_to "Log out",logout_path,method: :delete,class:"item" %>
-
         <% end %>
       </div>
     </div>
@@ -29,9 +38,6 @@
       <div class="item">
         <%= link_to "log in",login_path,class: "ui primary button" %>
       </div>
-
     <% end %>
   </div>
-
 </div>
-
