@@ -11,8 +11,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path, notice: "User created"
     else
-      flash.now[:error] = "Please correct the errors below"
-      render 'new'
+      flash[:error] = "Enter crendentials right"
+      redirect_to signup_path
 
     end
 
@@ -21,9 +21,6 @@ class UsersController < ApplicationController
   def all_users
     @user = User.all
     @following_users = current_user.following_users
-    # @is_following = current_user.following?(set_user)
-    # @has_sent_request = current_user.sent_follow_request_to?(set_user)
-    # @has_received_request = current_user.received_follow_request_from?(set_user)
 
   end
 
