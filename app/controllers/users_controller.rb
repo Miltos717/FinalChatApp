@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     redirect_to profile_path(set_user)
   end
 
-
+  #unfollow
   def unfollow
     make_it_a_unfriend_request
 

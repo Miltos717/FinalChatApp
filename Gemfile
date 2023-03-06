@@ -20,7 +20,7 @@ gem 'redis'
 gem 'followability', github: 'nejdetkadir/followability', branch: 'main'
 # gem "image_processing", "~> 1.2"
 # gem "redis", "~> 4.0"
-gem "kredis"
+#gem "kredis"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
