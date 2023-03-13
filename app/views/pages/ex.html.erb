@@ -5,24 +5,43 @@
       <div class="ui label">
         <i class="user icon"></i> Logged in as <%= current_user.email %>
       </div>
-
       <% current_user.follow_requests.each do |request| %>
-        <%= request.followerable.username  %>  wants to follow you
-        <%= button_to "Accept", accept_path(request.followerable),class:"ui inverted green button" %>
-        <%= button_to "Decline", decline_path(request.followerable),class:"ui inverted red button" %>
+        <div class="ui raised segment">
+          <div class="ui grid">
+            <div class="center aligned four wide column">
+              <div class="ui header"><%= request.followerable.username %></div>
+              <div class="ui sub header">Wants to follow you</div>
+            </div>
+            <div class="center aligned twelve wide column">
+              <div class="ui buttons">
+                <%= button_to "Accept", accept_path(request.followerable), class:"ui green button" %>
+                <%= button_to "Decline", decline_path(request.followerable), class:"ui red button" %>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
-      <hr />
+      <div class="ui divider"></div>
       <% current_user.followers.each do |user| %>
-        <%= link_to user.username, profile_path(user),class: "ui violet button"  %>  is following you
-        <%= button_to "Unfollow", unfollow_path(user),class:"ui inverted red button"%>
+        <div class="ui raised segment">
+          <div class="ui grid">
+            <div class="center aligned four wide column">
+              <div class="ui header"><%= link_to user.username, profile_path(user), class: "ui button" %></div>
+              <div class="ui sub header">Is following you</div>
+            </div>
+            <div class="center aligned twelve wide column">
+              <div class="ui buttons">
+                <%= button_to "Unfollow", unfollow_path(user), class:"ui red button" %>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
     <% else %>
-      <%= link_to "log in",login_path,class: "ui primary button" %>
+      <%= link_to "Log in", login_path, class: "ui primary button" %>
     <% end %>
   </div>
 </div>
-</div>
-
 <style>
     .label {
         display: inline-block;
@@ -35,5 +54,47 @@
 
     .label i {
         margin-right: 0.5em;
+    }
+
+    .ui.card {
+        width: 80%;
+        max-width: 800px;
+    }
+
+    .ui.raised.segment {
+        padding: 1.5em !important;
+    }
+
+    .ui.sub.header {
+        color: #555;
+        font-size: 14px;
+    }
+
+    .ui.buttons {
+        margin-top: 1.5em;
+    }
+
+    .ui.button {
+        font-weight: 600;
+    }
+
+    .ui.green.button {
+        background-color: #21ba45;
+        color: #fff;
+    }
+
+    .ui.red.button {
+        background-color: #db2828;
+        color: #fff;
+    }
+
+    .ui.violet.button {
+        background-color: #6435c9;
+        color: #fff;
+    }
+
+    .ui.primary.button {
+        background-color: #2185d0;
+        color: #fff;
     }
 </style>

@@ -1,8 +1,20 @@
-<h1>Do you want to cancel follow request to <%= @user.username %>?</h1>
-<% if current_user.following?(@user) %>
-  <%= button_to "Unfollow", unfollow_path(@user),class:"ui inverted red button" %>
-<% elsif current_user.sent_follow_request_to?(@user)%>
-  <%= button_to "Cancel follow request", cancel_path(@user),class:"ui inverted red button" %>
-<% else %>
-  <%= button_to "Follow",  follow_path(@user),class:"ui inverted green button" %>
-<% end %>
+<div class="ui segment">
+  <h1>Cancel follow request to <%= @user.username %>?</h1>
+  <div class="ui divider"></div>
+  <% if current_user.following?(@user) %>
+    <div class="ui message positive">
+      <p>You are currently following <%= @user.username %>.</p>
+      <%= button_to "Unfollow", unfollow_path(@user), class: "ui red button" %>
+    </div>
+  <% elsif current_user.sent_follow_request_to?(@user)%>
+    <div class="ui message warning">
+      <p>You have sent a follow request to <%= @user.username %>.</p>
+      <%= button_to "Cancel request", cancel_path(@user), class: "ui red button" %>
+    </div>
+  <% else %>
+    <div class="ui message">
+      <p>You are not following <%= @user.username %> yet.</p>
+      <%= button_to "Follow", follow_path(@user), class: "ui green button" %>
+    </div>
+  <% end %>
+</div>

@@ -11,22 +11,19 @@
               <%= form_with model: @user, url: users_path do |form| %>
 
                 <div class="form-outline mb-4">
-<!--                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />-->
-                  <%= form.text_field :username,id:"orm3Example1cg",class:"form-control " %>
                   <label class="form-label" for="form3Example1cg">Username</label>
+                  <%= form.text_field :username,id:"orm3Example1cg",class:"form-control " %>
 
                 </div>
 
                 <div class="form-outline mb-4">
-<!--                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />-->
-                  <%= form.email_field :email, autofocus: true,id:"",class:"form-control form-control-lg" %>
                   <label class="form-label" for="form3Example3cg">Your Email</label>
+                  <%= form.email_field :email, autofocus: true,id:"",class:"form-control form-control-lg" %>
                 </div>
 
                 <div class="form-outline mb-4">
-<!--                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" />-->
-                  <%= form.password_field :password,class:"form-control form-control-lg" %>
                   <label class="form-label" for="form3Example4cg">Password</label>
+                  <%= form.password_field :password,class:"form-control form-control-lg" %>
                 </div>
 
 
